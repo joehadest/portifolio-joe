@@ -1,0 +1,295 @@
+/* Animações adicionais para tornar o portfólio único */
+
+/* Efeito de brilho para botões */
+.btn-glow {
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow:after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    animation: shineEffect 3s infinite linear;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes shineEffect {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) rotate(30deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+        transform: translateX(100%) rotate(30deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Efeito de digitação para textos */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #0d6efd;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #0d6efd
+    }
+}
+
+/* Efeito de flutuação */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de balanço */
+.swing {
+    transform-origin: top center;
+    animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(5deg);
+    }
+
+    40% {
+        transform: rotate(-5deg);
+    }
+
+    60% {
+        transform: rotate(3deg);
+    }
+
+    80% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Efeito de destaque para habilidades */
+.skill-highlight {
+    position: relative;
+}
+
+.skill-highlight::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+.skill-highlight:hover::before {
+    width: 100%;
+}
+
+/* Efeito de borda gradiente */
+.gradient-border {
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #0d6efd, #dc3545, #ffc107, #20c997);
+    border-radius: 12px;
+    z-index: -1;
+    animation: animateGradient 3s linear infinite;
+}
+
+@keyframes animateGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animação para números de contador */
+.number-counter {
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.number-counter:hover {
+    transform: scale(1.2);
+    color: #0d6efd;
+}
+
+/* Efeito de revelação de texto */
+.reveal-text {
+    position: relative;
+    color: transparent;
+}
+
+.reveal-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #333;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: revealText 2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes revealText {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* Efeito de ícones 3D com sombras */
+.icon-3d {
+    display: inline-block;
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+.icon-3d:hover {
+    transform: translateY(-5px) translateZ(0);
+    filter: drop-shadow(5px 5px 0 rgba(0, 0, 0, 0.2));
+}
+
+/* Efeito de iluminação para os cartões */
+.card-illumination {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-illumination::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.card-illumination:hover::before {
+    opacity: 1;
+}
+
+/* Efeito de seguir o mouse */
+.follow-mouse {
+    transition: transform 0.2s ease;
+}
+
+/* Efeito de distorção para imagens */
+.img-distort {
+    transition: all 0.5s ease;
+}
+
+.img-distort:hover {
+    transform: perspective(500px) rotateY(15deg);
+    filter: brightness(1.1);
+}
+
+/* Tema escuro - para ser ativado via JavaScript */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-theme .card {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark-theme .navbar {
+    background-color: #000 !important;
+}
+
+body.dark-theme .form-control {
+    background-color: #333;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-theme .form-control:focus {
+    background-color: #444;
+}

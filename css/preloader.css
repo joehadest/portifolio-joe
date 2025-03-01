@@ -1,0 +1,250 @@
+/* Estilos para o preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #0d6efd;
+    animation: spin 1s linear infinite;
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #dc3545;
+    animation: spin 0.5s linear infinite reverse;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animação para o texto do preloader */
+.loader-text {
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 2px;
+    animation: pulse 1.5s infinite;
+    font-size: 1.2rem;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Barras de progresso para o preloader */
+.progress-container {
+    margin-top: 20px;
+    width: 200px;
+    height: 5px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-preloader {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #0d6efd, #dc3545);
+    transition: width 0.3s ease;
+}
+
+/* ======= AJUSTES RESPONSIVOS PARA MOBILE ======= */
+
+/* Tablets e dispositivos médios */
+@media (max-width: 768px) {
+    .loader {
+        width: 70px;
+        height: 70px;
+    }
+
+    .loader-text {
+        margin-top: 30px;
+        font-size: 1.1rem;
+    }
+
+    .progress-container {
+        width: 180px;
+    }
+}
+
+/* Celulares e dispositivos pequenos */
+@media (max-width: 576px) {
+    .loader {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loader-text {
+        margin-top: 25px;
+        font-size: 1rem;
+    }
+
+    .progress-container {
+        width: 80%;
+        max-width: 160px;
+        margin-top: 15px;
+    }
+
+    /* Menos espessura no loader para mobile */
+    .loader:before {
+        border-width: 2px;
+    }
+
+    .loader:after {
+        border-width: 2px;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .loader {
+        width: 50px;
+        height: 50px;
+    }
+
+    .loader-text {
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+
+    .progress-container {
+        height: 4px;
+        max-width: 140px;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 480px) and (orientation: landscape) {
+    .preloader {
+        flex-direction: row;
+        padding: 10px 20px;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+    }
+
+    .loader-text {
+        margin-top: 0;
+        margin-right: 20px;
+        font-size: 0.9rem;
+    }
+
+    .progress-container {
+        width: 120px;
+        margin-top: 0;
+        height: 4px;
+    }
+}
+
+/* Modo escuro para o preloader */
+@media (prefers-color-scheme: dark) {
+    .preloader-dark-mode {
+        background: #121212;
+    }
+
+    .preloader-dark-mode .loader-text {
+        color: #f0f0f0;
+    }
+
+    .preloader-dark-mode .progress-container {
+        background: #333;
+    }
+}
+
+/* Animação de entrada do preloader */
+.preloader-reveal {
+    animation: preloaderReveal 0.5s ease forwards;
+}
+
+@keyframes preloaderReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação especial para baixa largura de banda */
+.slow-connection .progress-bar-preloader {
+    background: linear-gradient(45deg, #0d6efd, #dc3545, #0d6efd);
+    background-size: 200% 200%;
+    animation: gradientMovement 2s ease infinite;
+}
+
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,111 @@
+/* Estilo para os pontos de navegação lateral */
+
+.nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #0d6efd;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background-color: #0d6efd;
+    transform: scale(1.2);
+}
+
+.nav-dot.active::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.nav-dot:hover {
+    background-color: #0d6efd;
+}
+
+.dot-tooltip {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+.nav-dot:hover .dot-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Modo escuro para dots */
+body.dark-theme .nav-dot {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-theme .nav-dot.active {
+    background-color: #0d6efd;
+}
+
+/* Adaptação Mobile */
+@media (max-width: 768px) {
+    .nav-dots {
+        right: 10px;
+    }
+
+    .nav-dot {
+        width: 8px;
+        height: 8px;
+        margin: 8px 0;
+    }
+
+    .nav-dot::before {
+        width: 16px;
+        height: 16px;
+    }
+
+    .dot-tooltip {
+        display: none;
+    }
+}
+
+/* Esconder completamente em telas muito pequenas */
+@media (max-width: 480px) {
+    .nav-dots {
+        display: none;
+    }
+}

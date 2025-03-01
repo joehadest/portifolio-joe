@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portfólio Profissional</title>
+    <meta name="description"
+        content="Portfólio de desenvolvedor web com projetos de sistemas web, aplicações e websites">
+    <meta name="theme-color" content="#0d6efd"> <!-- Cor da barra de status em mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Ícones para dispositivos móveis -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Preloader CSS -->
+    <link rel="stylesheet" href="css/preloader.css">
+    <!-- Zoom CSS -->
+    <link rel="stylesheet" href="css/zoom.css">
+    <!-- Theme Toggle CSS -->
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <!-- Nav Dots CSS -->
+    <link rel="stylesheet" href="css/nav-dots.css">
+</head>
+
+<body class="preloader-active">
+    <!-- Preloader com atributos de acessibilidade -->
+    <div class="preloader" aria-hidden="true" role="status">
+        <div class="loader" aria-label="Carregando..."></div>
+        <div class="loader-text">CARREGANDO...</div>
+        <div class="progress-container">
+            <div class="progress-bar-preloader"></div>
+        </div>
+    </div>
+
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor"></div>
+
+    <!-- Partículas de fundo -->
+    <div id="particles-js"></div>
+
+    <!-- Botão de tema -->
+    <div class="theme-toggle position-fixed top-0 end-0 mt-3 me-3 z-3">
+        <button class="btn btn-sm btn-outline-light rounded-circle p-2" id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Navigation dots - Atualizados com data-section -->
+    <div class="nav-dots">
+        <a href="#home" class="nav-dot active" data-section="home"><span class="dot-tooltip">Início</span></a>
+        <a href="#about" class="nav-dot" data-section="about"><span class="dot-tooltip">Sobre</span></a>
+        <a href="#projects" class="nav-dot" data-section="projects"><span class="dot-tooltip">Projetos</span></a>
+        <a href="#skills" class="nav-dot" data-section="skills"><span class="dot-tooltip">Habilidades</span></a>
+        <a href="#contact" class="nav-dot" data-section="contact"><span class="dot-tooltip">Contato</span></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-1 fw-bold text-white">Olá, Sou Dev <span class="typing-effect">Joe</span></h1>
+            <p class="lead text-white mb-4" data-aos="fade-up" data-aos-delay="300">Transformando ideias em experiências
+                digitais impactantes</p>
+            <a href="#projects" class="btn btn-primary btn-lg pulse-btn btn-glow" data-aos="zoom-in"
+                data-aos-delay="600">Ver Projetos</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-right">
+                    <div class="profile-pic">
+                        <img src="./images/image-pessoal.jpg" alt="Minha foto"
+                            class="img-fluid rounded-circle hover-rotate img-distort">
+                    </div>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
+                    <h2 class="section-title">Sobre <span class="skill-highlight">Mim</span></h2>
+                    <p>Sou um desenvolvedor apaixonado por criar soluções digitais inovadoras. Com experiência em
+                        diversas tecnologias web, meu objetivo é desenvolver aplicações que combinam funcionalidade e
+                        design excelente.</p>
+                    <p>Estou sempre em busca de novos desafios e oportunidades para expandir meus conhecimentos e
+                        habilidades.</p>
+
+                    <!-- Adicionar estatísticas animadas -->
+                    <div class="row mt-4 mb-4">
+                        <div class="col-md-4 text-center">
+                            <div class="number-counter counter" data-target="5">0</div>
+                            <p>Projetos Completados</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="number-counter counter" data-target="2">0</div>
+                            <p>Anos de Experiência</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 social-buttons">
+                        <a href="https://github.com/joehadest" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-dark me-2 icon-hover icon-3d"><i class="fab fa-github"></i>
+                            GitHub</a>
+                        <a href="https://www.linkedin.com/in/joel-melo-ab60b729b/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline-primary me-2 icon-hover icon-3d"><i
+                                class="fab fa-linkedin"></i>
+                            LinkedIn</a>
+                        <a href="https://drive.google.com/file/d/1dDbAX56gnXXakYbdine13aeBCi_T6ja6/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-danger icon-hover icon-3d"><i class="fas fa-file-pdf"></i>
+                            Currículo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-down">Meus Projetos</h2>
+            <div class="row">
+                <!-- Barbearia -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="./images/barbearia.png" class="card-img-top" alt="Barbearia">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de Barbearia</h5>
+                            <p class="card-text">Site para melhorar o atendimento em barbearias, com agendamento online,
+                                controle de clientes e gestão de serviços.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://app.netlify.com/sites/barbeariastyle/overview" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">Ver Demo</a>
+                                    <a href="https://github.com/joehadest/barbearia" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cardapio Digital -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="./images/cardapio-digital.png" class="card-img-top" alt="Cardapio Digital">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cardápio Digital</h5>
+                            <p class="card-text">Cardapio online com banco de dados e muito mais, gerenciamento de
+                                produtos, categorias e pedidos para restaurantes.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://cardapio-digital-teste.vercel.app/" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">Ver Demo</a>
+                                    <a href="https://github.com/joehadest/cardapio-digital-copia" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema de Estoque -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="./images/estoque.png" class="card-img-top" alt="Sistema de Estoque">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de Estoque</h5>
+                            <p class="card-text">Site para gestão de estoque de peças, com controle de entrada e saída,
+                                relatórios e alertas de estoque mínimo.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://sistema-de-estoque-teste.netlify.app/" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">Ver Demo</a>
+                                    <a href="https://github.com/joehadest/estoque" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda linha de projetos -->
+            <div class="row mt-4">
+                <!-- Cardapio Simples -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="images/cardapio.png" class="card-img-top" alt="Cardapio Simples">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cardápio Simples</h5>
+                            <p class="card-text">Cardápio sem banco de dados, ideal para pequenos negócios que buscam
+                                uma solução rápida e eficiente.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://github.com/joehadest/cardapio-digital" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página de Vendas -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="images/page-vendas.png" class="card-img-top" alt="Pagina de Vendas">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Página de Vendas</h5>
+                            <p class="card-text">Site para minhas vendas de websites, com seções otimizadas para
+                                captação de leads e fechamento de negócios.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://page-vendas.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                        class="btn btn-sm btn-outline-primary">Ver
+                                        Demo</a>
+                                    <a href="https://github.com/joehadest/page-vendas" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carta de Amor -->
+                <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card project-card h-100">
+                        <div class="project-img-container">
+                            <img src="./images/carta.png" class="card-img-top" alt="Carta de Amor">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light btn-sm detail-btn">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Carta de Amor Virtual</h5>
+                            <p class="card-text">Carta de amor interativa com animações e efeitos visuais especiais para
+                                expressar sentimentos de forma criativa.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="https://github.com/joehadest/Love-letter" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Ver
+                                        Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão para ver mais projetos -->
+            <div class="text-center mt-5">
+                <a href="https://github.com/joehadest?tab=repositories" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary btn-lg">Ver Mais
+                    Projetos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-down">Minhas Habilidades</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+                    <h4 class="skill-title">Linguagens de Programação</h4>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>HTML/CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                    <h4 class="skill-title">Frameworks & Ferramentas</h4>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Bootstrap</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>React</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="30%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Node.js</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                role="progressbar" style="width: 0%" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-down">Entre em Contato</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-4" data-aos="zoom-in-right">
+                    <div class="card h-100 contact-card">
+                        <div class="card-body">
+                            <h4 class="card-title">Informações de Contato</h4>
+                            <p>Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar
+                                em contato através dos canais abaixo:</p>
+                            <div class="contact-info">
+                                <p><i class="fas fa-envelope me-2"></i> joel.melo171@gmail.com</p>
+                                <p><i class="fas fa-phone me-2"></i> (55) 84-99869-9449</p>
+                                <p><i class="fas fa-map-marker-alt me-2"></i> Rio Grande do Norte, Brasil</p>
+                            </div>
+                            <div class="social-links mt-4">
+                                <a href="https://github.com/joehadest" target="_blank" rel="noopener noreferrer"
+                                    class="me-3 text-dark fs-5 social-icon"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/joel-melo-ab60b729b/" target="_blank"
+                                    rel="noopener noreferrer" class="me-3 text-primary fs-5 social-icon"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="zoom-in-left" data-aos-delay="300">
+                    <div class="card contact-form-card">
+                        <div class="card-body">
+                            <h4 class="card-title">Envie uma Mensagem</h4>
+                            <form>
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Seu nome" required>
+                                    <label for="name">Nome</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Seu email"
+                                        required>
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Assunto">
+                                    <label for="subject">Assunto</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Sua mensagem"
+                                        style="height: 150px" required></textarea>
+                                    <label for="message">Mensagem</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary submit-btn">
+                                    <span>Enviar Mensagem</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-3">&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
+            <div class="floating">
+                <a href="#home" class="btn btn-primary rounded-circle back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts - Ordem atualizada para evitar conflitos -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Mouse Movement Effects -->
+    <script src="js/mousemove.js"></script>
+    <!-- Nav Dots JS -->
+    <script src="js/nav-dots.js"></script>
+    <!-- Theme Toggle JS -->
+    <script src="js/theme-toggle.js"></script>
+    <!-- Preloader JS -->
+    <script src="js/preloader.js"></script>
+    <!-- Animation Controls -->
+    <script src="js/animation-controls.js"></script>
+    <!-- Projects Modal -->
+    <script src="js/projects-modal.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
