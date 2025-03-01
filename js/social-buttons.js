@@ -60,23 +60,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Detectar se a página está em modo escuro para ajustar os botões
-    const checkDarkMode = () => {
+    // Verificar se a página está em modo escuro para ajustar os botões
+    function checkDarkMode() {
         const isDarkMode = document.body.classList.contains('dark-theme');
-        if (isDarkMode) {
-            document.querySelectorAll('.btn-outline-dark').forEach(btn => {
+        document.querySelectorAll('.btn-outline-dark').forEach(btn => {
+            if (isDarkMode) {
                 btn.classList.add('dark-mode-adjusted');
-            });
-        } else {
-            document.querySelectorAll('.btn-outline-dark').forEach(btn => {
+            } else {
                 btn.classList.remove('dark-mode-adjusted');
-            });
-        }
-    };
+            }
+        });
+    }
 
     // Verificar inicialmente
     checkDarkMode();
 
     // Verificar quando o tema mudar
     document.addEventListener('themeChanged', checkDarkMode);
+
+    // Também verificar quando o botão de tema é clicado
+    document.getElementById('theme-toggle-btn')?.addEventListener('click', function () {
+        // Pequeno atraso para garantir que a classe dark-theme já foi alternada
+        setTimeout(checkDarkMode, 50);
+    });
 });

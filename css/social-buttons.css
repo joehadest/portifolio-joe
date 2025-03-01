@@ -10,249 +10,196 @@
 }
 
 .social-buttons .icon-hover {
-    transition: all 0.3s ease;
-    -bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 8px 16px;
+    font-weight: 500;
+    border-width: 2px;
     flex: 0 0 auto;
-    min-width: 120px;
-    /* Garante largura mínima para conteúdo */
+    min-width: 120px; /* Garante largura mínima para conteúdo */
 }
-
-font-weight: 500;
-border-width: 2px;
 
 .social-buttons .icon-hover i {
-    0,
-    0,
-    0,
-    0.08);
-    margin-right: 8px;
+    margin-right: 10px;
     font-size: 1.1em;
+    transition: transform 0.3s ease;
 }
 
-social-buttons .icon-hover i {
-    margin-right: 10px;
+.social-buttons .icon-hover:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(13, 110, 253, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: -1;
+}
 
-    .social-buttons .icon-hover:before {
-        content: '';
-        transform 0.3s ease;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+.social-buttons .icon-hover:hover:before {
+    width: 100%;
+}
 
-        ons .icon-hover:before {
-            width: 0%;
-            ';
- height: 100%;
-            olute;
-            background-color: rgba(13, 110, 253, 0.1);
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
+.social-buttons .icon-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
 
-        height: 100%;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+.social-buttons .icon-hover:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
 
-        .social-buttons .icon-hover:hover:before {
-            width: 100%;
-            5;
-        }
+/* Efeito de ondulação (ripple) */
+.social-buttons .icon-hover .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    z-index: -1;
+}
 
-        .social-buttons .icon-hover:hover {
-            efore {
-                transform: translateY(-3px);
-                box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
-            }
+@keyframes ripple-effect {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
 
-            .social-buttons .icon-hover:hover {
+/* Estilos específicos para cada botão social */
+.social-buttons .btn-outline-dark {
+    color: #212529;
+    border-color: #212529;
+}
 
-                /* Efeito de ondulação (ripple) */
-                .social-buttons .icon-hover .ripple {
-                    rgba(0, 0, 0, 0.15);
-                    position: absolute;
-                    border-radius: 50%;
-                    background-color: rgba(255, 255, 255, 0.6);
-                    transform: scale(0);
-                    ;
-                    animation: ripple-effect 0.6s linear;
-                    z-index: -1;
-                }
+.social-buttons .btn-outline-dark:hover {
+    background-color: #212529;
+    color: white;
+}
 
-                /* Estilos específicos para cada botão social */
-                    {
-                    @keyframes ripple-effect {
-                        to {
-                            transform: scale(2);
-                            opacity: 0;
+.social-buttons .btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
 
-                            -dark:hover {}
-                        }
+.social-buttons .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
 
-                        #212529;
+.social-buttons .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
 
-                        /* Estilo específico para botões sociais em dispositivos móveis */
-                        @media (max-width: 768px) {
-                            al-buttons .btn-outline-primary {
-                                .social-buttons {
-                                    color: #0d6efd;
-                                    justify-content: center;
-                                }
+.social-buttons .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
 
-                                /* Centralizar em telas menores */
-                                margin: 1.5rem auto;
+/* Estilo específico para botões sociais em dispositivos móveis */
+@media (max-width: 768px) {
+    .social-buttons {
+        justify-content: center;
+        margin: 1.5rem auto;
+    }
 
-                                e-primary:hover {
-                                    width: 100%;
-                                }
+    .social-buttons .icon-hover {
+        min-width: 0;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        text-align: center;
+        justify-content: center;
+    }
+}
 
-                                .social-buttons .icon-hover {
-                                    min-width: 0;
+/* Telas muito pequenas (telefones em retrato) */
+@media (max-width: 576px) {
+    .social-buttons {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+        justify-content: space-between;
+    }
 
-                                    al-buttons .btn-outline-danger {
-                                        /* Remover largura mínima */
-                                        color: #dc3545;
-                                        padding: 0.375rem 0.75rem;
-                                        /* Botões menores */
-                                        font-size: 0.9rem;
+    .social-buttons .icon-hover {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 8px 5px;
+        font-size: 0.85rem;
+    }
 
-                                        danger:hover {
-                                            flex-grow: 1;
-                                            text-align: center;
-                                            ackground-color: #dc3545;
-                                            justify-content: center;
-                                        }
-                                    }
+    .social-buttons .icon-hover i {
+        margin-right: 6px;
+        font-size: 1em;
+    }
+}
 
-                                    ico para botões sociais em dispositivos móveis */
+/* Tema escuro */
+body.dark-theme .social-buttons .icon-hover.btn-outline-dark {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
 
-                                    /* Telas muito pequenas (telefones em retrato) */
-                                        {
-                                        @media (max-width: 576px) {
-                                            enter;
+body.dark-theme .social-buttons .icon-hover.btn-outline-dark:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
 
-                                            .social-buttons {
-                                                margin: 1.5rem auto;
-                                                flex-direction: column;
-                                                gap: 15px;
-                                                width: 100%;
-                                                gap: 8px;
-                                            }
+/* Ajustes para tema escuro */
+.dark-mode-adjusted {
+    color: #f8f9fa !important;
+    border-color: #f8f9fa !important;
+    background-color: rgba(248, 249, 250, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
 
-                                            .social-buttons .icon-hover {}
+.dark-mode-adjusted:hover {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+}
 
-                                            color: #212529 !important;
-                                            background-color: #f8f9fa !important;
+/* Animação dos botões ao carregar a página */
+@keyframes buttonPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-                                            .dark-mode-adjusted:hover {}
+.social-buttons .icon-hover {
+    opacity: 0;
+    animation: buttonPop 0.5s forwards;
+}
 
-                                            border-color: #f8f9fa !important;
-                                            color: #f8f9fa !important;
+.social-buttons .icon-hover:nth-child(1) {
+    animation-delay: 0.3s;
+}
 
-                                            .dark-mode-adjusted {}
+.social-buttons .icon-hover:nth-child(2) {
+    animation-delay: 0.5s;
+}
 
-                                            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+.social-buttons .icon-hover:nth-child(3) {
+    animation-delay: 0.7s;
+}
 
-                                            body.dark-theme .social-buttons .icon-hover {}
-
-                                            background-color: rgba(248, 249, 250, 0.1);
-
-                                            body.dark-theme .social-buttons .icon-hover.btn-outline-dark:hover {}
-
-                                            border-color: #f8f9fa;
-                                            color: #f8f9fa;
-
-                                            body.dark-theme .social-buttons .icon-hover.btn-outline-dark {
-                                                /* Tema escuro */
-                                            }
-                                        }
-
-                                        font-size: 1rem;
-                                        padding: 0.5rem 1rem;
-                                        width: 100%;
-
-                                        .social-buttons .icon-hover {
-                                            min-width: 0;
-                                            padding: 8px 16px;
-                                            font-size: 0.9rem;
-                                            flex: 1 1 auto;
-                                            max-width: 140px;
-                                        }
-                                    }
-
-                                    /* Telas muito pequenas (telefones em retrato) */
-                                    @media (max-width: 576px) {
-                                        .social-buttons {
-                                            flex-direction: row;
-                                            width: 100%;
-                                            gap: 10px;
-                                            justify-content: space-between;
-                                        }
-
-                                        .social-buttons .icon-hover {
-                                            flex: 1 1 0;
-                                            min-width: 0;
-                                            padding: 8px 5px;
-                                            font-size: 0.85rem;
-                                        }
-
-                                        .social-buttons .icon-hover i {
-                                            margin-right: 6px;
-                                            font-size: 1em;
-                                        }
-                                    }
-
-                                    /* Tema escuro */
-                                    body.dark-theme .social-buttons .icon-hover.btn-outline-dark {
-                                        color: #f8f9fa;
-                                        border-color: #f8f9fa;
-                                    }
-
-                                    body.dark-theme .social-buttons .icon-hover.btn-outline-dark:hover {
-                                        background-color: #f8f9fa;
-                                        color: #212529;
-                                    }
-
-                                    /* Animação dos botões ao carregar a página */
-                                    @keyframes buttonPop {
-                                        0% {
-                                            transform: scale(0.8);
-                                            opacity: 0;
-                                        }
-
-                                        80% {
-                                            transform: scale(1.1);
-                                        }
-
-                                        100% {
-                                            transform: scale(1);
-                                            opacity: 1;
-                                        }
-                                    }
-
-                                    .social-buttons .icon-hover {
-                                        opacity: 0;
-                                        animation: buttonPop 0.5s forwards;
-                                    }
-
-                                    .social-buttons .icon-hover:nth-child(1) {
-                                        animation-delay: 0.3s;
-                                    }
-
-                                    .social-buttons .icon-hover:nth-child(2) {
-                                        animation-delay: 0.5s;
-                                    }
-
-                                    .social-buttons .icon-hover:nth-child(3) {
-                                        animation-delay: 0.7s;
-                                    }
-
-                                    /* Efeito de clique */
-                                    .social-buttons .icon-hover:active {
-                                        transform: scale(0.95);
-                                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                                    }
+/* Efeito de clique */
+.social-buttons .icon-hover:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
