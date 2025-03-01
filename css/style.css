@@ -231,15 +231,8 @@ body:has(.cursor-ready) {
 }
 
 .social-buttons .icon-hover:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(13, 110, 253, 0.1);
-    transition: all 0.3s ease;
-    z-index: -1;
+    /* Estas propriedades serão controladas pelo social-buttons.css */
+    content: none;
 }
 
 .social-buttons .icon-hover:hover:before {
@@ -247,8 +240,9 @@ body:has(.cursor-ready) {
 }
 
 .social-buttons .icon-hover:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+    /* Estas propriedades serão controladas pelo social-buttons.css */
+    transform: none;
+    box-shadow: none;
 }
 
 /* Project Cards com animações */
