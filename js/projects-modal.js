@@ -251,3 +251,106 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Project Details Handler
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all detail buttons
+    const detailButtons = document.querySelectorAll('.detail-btn');
+    const projectModal = document.getElementById('projectModal');
+    const projectModalContent = document.getElementById('projectModalContent');
+    const modalTitle = document.querySelector('#projectModal .modal-title');
+    const viewLiveBtn = document.getElementById('viewLiveBtn');
+    const viewCodeBtn = document.getElementById('viewCodeBtn');
+
+    // Project details data
+    const projectDetails = {
+        'lava-rapido': {
+            title: 'Lava Rápido Profissional',
+            description: `
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="./images/lava-rapido.png" class="img-fluid rounded mb-3" alt="Lava Rápido">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Sobre o Projeto</h5>
+                        <p>Site completo para um serviço de Lava Rápido profissional especializado em carros e motos.</p>
+                        
+                        <h6>Características</h6>
+                        <ul>
+                            <li>Design moderno e responsivo</li>
+                            <li>Sistema de agendamento online</li>
+                            <li>Exibição de serviços disponíveis</li>
+                            <li>Avaliações de clientes</li>
+                            <li>Interface para desktop e dispositivos móveis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h6>Serviços</h6>
+                        <ul>
+                            <li>Lavagem de Carros (R$50)</li>
+                            <li>Lavagem de Motos (R$30)</li>
+                            <li>Pintura de Escapamento para Motos (R$50)</li>
+                        </ul>
+                        <p>Todos os serviços incluem produtos Vonixx.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Tecnologias Utilizadas</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge bg-primary m-1 p-2"><i class="fab fa-react me-1"></i> React.js</span>
+                            <span class="badge bg-info m-1 p-2"><i class="fab fa-css3 me-1"></i> CSS3 com animações</span>
+                            <span class="badge bg-success m-1 p-2"><i class="fas fa-route me-1"></i> React Router</span>
+                            <span class="badge bg-secondary m-1 p-2"><i class="fas fa-mobile-alt me-1"></i> Design mobile-first</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            liveUrl: 'https://lava-rapido.vercel.app/',
+            codeUrl: 'https://github.com/joehadest/lava-rapido'
+        },
+        // Você pode adicionar detalhes para outros projetos aqui no mesmo formato
+    };
+
+    // Adicionar ouvinte de evento para cada botão de detalhes
+    detailButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Encontrar qual projeto foi clicado - pegando o alt da imagem mais próxima
+            const projectCard = this.closest('.project-card');
+            const projectImg = projectCard.querySelector('img');
+            const projectTitle = projectCard.querySelector('.card-title').textContent;
+            const projectAlt = projectImg.alt.toLowerCase().replace(/\s+/g, '-');
+
+            // Atualizar o modal com os detalhes do projeto
+            if (projectDetails[projectAlt]) {
+                modalTitle.textContent = projectDetails[projectAlt].title;
+                projectModalContent.innerHTML = projectDetails[projectAlt].description;
+                viewLiveBtn.href = projectDetails[projectAlt].liveUrl;
+                viewCodeBtn.href = projectDetails[projectAlt].codeUrl;
+
+                // Exibir ou ocultar o botão de demo conforme disponibilidade
+                viewLiveBtn.style.display = projectDetails[projectAlt].liveUrl ? 'inline-block' : 'none';
+            } else {
+                // Fallback para projetos sem detalhes específicos
+                modalTitle.textContent = projectTitle;
+                projectModalContent.innerHTML = '<p>Detalhes completos não disponíveis para este projeto.</p>';
+
+                // Encontrar links dentro do card para o modal
+                const demoLink = projectCard.querySelector('a[class*="btn-outline-primary"]');
+                const codeLink = projectCard.querySelector('a[class*="btn-outline-secondary"]');
+
+                viewLiveBtn.href = demoLink ? demoLink.href : '#';
+                viewCodeBtn.href = codeLink ? codeLink.href : '#';
+                viewLiveBtn.style.display = demoLink ? 'inline-block' : 'none';
+            }
+
+            // Exibir o modal
+            const bsModal = new bootstrap.Modal(projectModal);
+            bsModal.show();
+        });
+    });
+});
