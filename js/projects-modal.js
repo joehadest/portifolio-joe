@@ -81,140 +81,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    // Remove the detail buttons event listeners
+    /*
     // Initialize all project detail buttons
     const detailButtons = document.querySelectorAll('.project-overlay .btn');
 
     detailButtons.forEach(button => {
         button.addEventListener('click', function (e) {
-            e.preventDefault();
+            // ...existing code...
+        });
+    });
+    */
 
-            // Get the parent project card
-            const projectCard = this.closest('.project-card');
+    // Instead, add click events to the entire project card
+    const projectCards = document.querySelectorAll('.project-card');
 
-            // Get project details
-            const projectTitle = projectCard.querySelector('.card-title').textContent;
-            const projectDescription = projectCard.querySelector('.card-text').textContent;
-            const projectImage = projectCard.querySelector('.card-img-top').src;
+    projectCards.forEach(card => {
+        // Make the project image container clickable to see the demo
+        const imgContainer = card.querySelector('.project-img-container');
+        imgContainer.style.cursor = 'pointer';
 
-            // Get links if they exist
-            let demoLink = projectCard.querySelector('.btn-outline-primary')?.href || '#';
-            let codeLink = projectCard.querySelector('.btn-outline-secondary')?.href || '#';
-
-            // Create modal content
-            const modalId = 'projectDetailModal';
-            let modal = document.getElementById(modalId);
-
-            // Create modal if it doesn't exist
-            if (!modal) {
-                const modalHTML = `
-                <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content bg-dark text-light">
-                            <div class="modal-header border-secondary">
-                                <h5 class="modal-title text-light"></h5>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <img class="img-fluid rounded project-modal-img" alt="">
-                                        <div class="d-flex flex-wrap mt-3 project-tech-badges">
-                                            <!-- Badges de tecnologias serão inseridas aqui -->
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 class="text-light">Descrição</h4>
-                                        <p class="project-modal-description text-light-50"></p>
-                                        
-                                        <div class="mt-4">
-                                            <h5 class="text-light">Principais Recursos</h5>
-                                            <ul class="project-features text-light-50">
-                                                <!-- Features serão inseridas aqui -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer border-secondary">
-                                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
-                                <a href="#" class="btn btn-primary demo-link" target="_blank" rel="noopener noreferrer">Ver Demo</a>
-                                <a href="#" class="btn btn-outline-primary code-link" target="_blank" rel="noopener noreferrer">Ver Código</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-
-                document.body.insertAdjacentHTML('beforeend', modalHTML);
-                modal = document.getElementById(modalId);
+        imgContainer.addEventListener('click', function () {
+            const demoLink = card.querySelector('.btn-outline-primary');
+            if (demoLink) {
+                window.open(demoLink.href, '_blank', 'noopener,noreferrer');
             }
-
-            // Update modal content
-            modal.querySelector('.modal-title').textContent = projectTitle;
-            modal.querySelector('.project-modal-description').textContent = projectDescription;
-            modal.querySelector('.project-modal-img').src = projectImage;
-
-            // Buscar dados detalhados do projeto pelo ID
-            const projectId = getProjectId(projectTitle);
-            const projectDetails = projectsData[projectId];
-
-            // Preencher badges de tecnologias se disponível
-            const techBadgesContainer = modal.querySelector('.project-tech-badges');
-            techBadgesContainer.innerHTML = '';
-
-            if (projectDetails && projectDetails.technologies) {
-                projectDetails.technologies.forEach(tech => {
-                    const badgeClass = tech.toLowerCase().replace(/[^a-z0-9]/g, '');
-                    const badge = document.createElement('span');
-                    badge.className = `tech-badge ${badgeClass} me-2 mb-2`;
-                    badge.textContent = tech;
-                    techBadgesContainer.appendChild(badge);
-                });
-            }
-
-            // Preencher features se disponível
-            const featuresList = modal.querySelector('.project-features');
-            featuresList.innerHTML = '';
-
-            if (projectDetails && projectDetails.features) {
-                projectDetails.features.forEach(feature => {
-                    const li = document.createElement('li');
-                    li.textContent = feature;
-                    featuresList.appendChild(li);
-                });
-            } else {
-                featuresList.innerHTML = '<li>Detalhes não disponíveis</li>';
-            }
-
-            // Update links
-            const demoButton = modal.querySelector('.demo-link');
-            const codeButton = modal.querySelector('.code-link');
-
-            if (demoLink && demoLink !== '#') {
-                demoButton.href = demoLink;
-                demoButton.style.display = 'inline-block';
-            } else {
-                demoButton.style.display = 'none';
-            }
-
-            if (codeLink && codeLink !== '#') {
-                codeButton.href = codeLink;
-                codeButton.style.display = 'inline-block';
-            } else {
-                codeButton.style.display = 'none';
-            }
-
-            // Show modal
-            const modalInstance = new bootstrap.Modal(modal);
-            modalInstance.show();
-
-            // Adicionar classe escura ao fundo do modal quando aberto
-            modal.addEventListener('shown.bs.modal', function () {
-                const modalBackdrop = document.querySelector('.modal-backdrop');
-                if (modalBackdrop) {
-                    modalBackdrop.classList.add('bg-dark');
-                    modalBackdrop.style.opacity = '0.9';
-                }
-            });
         });
     });
 
@@ -252,8 +143,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Remove the Project Details Handler section as it's no longer needed
+/*
 // Project Details Handler
-
 document.addEventListener('DOMContentLoaded', function () {
     // Get all detail buttons
     const detailButtons = document.querySelectorAll('.detail-btn');
@@ -354,3 +246,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+*/

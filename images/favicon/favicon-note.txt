@@ -1,0 +1,9 @@
+You need to create a favicon.ico file manually using an image conversion tool.
+
+Steps to create favicon.ico:
+1. Open an image editor like GIMP, Photoshop or use an online converter like favicon.io
+2. Create a 16x16 or 32x32 pixel image with your logo/icon
+3. Save it as favicon.ico in this directory
+4. The favicon-fallback.js script will provide a temporary favicon until you add the real one
+
+Note: You can also convert one of your PNG favicons to ICO format using an online converter.

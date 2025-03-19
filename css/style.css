@@ -96,26 +96,23 @@ body:has(.cursor-ready) {
     position: relative;
     margin-bottom: 30px;
     padding-bottom: 15px;
+    text-align: center;
 }
 
 .section-title::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     width: 50px;
     height: 3px;
     background-color: #0d6efd;
     transition: width 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .section-title:hover::after {
     width: 100px;
-}
-
-.text-center .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 /* Animação de texto na hero section */
@@ -292,6 +289,21 @@ body:has(.cursor-ready) {
     opacity: 1;
 }
 
+.project-overlay::after {
+    content: '\f002';
+    /* Magnifying glass icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-img-container:hover .project-overlay::after {
+    opacity: 1;
+}
+
 .overlay-content {
     transform: translateY(20px);
     transition: transform 0.5s ease;
@@ -384,21 +396,23 @@ body:has(.cursor-ready) {
     display: inline-block;
     margin-bottom: 20px;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .skill-title:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 30px;
     height: 2px;
     background-color: #0d6efd;
     transition: width 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .skill-title:hover:after {
-    width: 100%;
+    width: 60px;
 }
 
 .skill-item {
@@ -704,5 +718,84 @@ body:has(.cursor-ready) {
     /* Sem espaço superior de navbar */
     body {
         padding-top: 0;
+    }
+}
+
+/* Adicionar estas regras ao final do arquivo style.css */
+
+/* Centralizar texto nos cards e seções */
+.card-body {
+    text-align: center;
+}
+
+.card-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centralizar os grupos de botões */
+.btn-group {
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ajustar o alinhamento nos cards de projetos */
+.project-card .card-body .d-flex {
+    justify-content: center !important;
+}
+
+/* Ajustar os ícones sociais no contato */
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+/* Melhorar o espaçamento para elementos centralizados */
+.section p,
+.card p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+/* Centralizar títulos de seções que não tenham já a classe text-center */
+.section-title:not(.text-center) {
+    text-align: center;
+}
+
+.section-title:not(.text-center)::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Ajustar especificamente para a seção de habilidades */
+#skills .skill-title {
+    text-align: center;
+    display: block;
+}
+
+#skills .skill-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Style for the developer name in the hero section */
+.dev-name {
+    display: inline-block;
+    color: #0d6efd;
+    text-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
+    animation: fadeInScale 1.2s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
