@@ -3,6 +3,9 @@
  * Verifies and manages the favicon functionality
  */
 document.addEventListener('DOMContentLoaded', function () {
+    // Detect if running on GitHub Pages
+    const isGitHubPages = window.location.hostname.includes('github.io');
+
     // Check if favicons are loaded correctly
     function checkFavicon() {
         const favicons = [
@@ -22,12 +25,30 @@ document.addEventListener('DOMContentLoaded', function () {
             img.onerror = function () {
                 console.warn('Favicon não encontrado: ' + faviconBase + icon);
                 missingFavicons.push(icon);
+
+                // Se estiver no GitHub Pages, tente com caminho alternativo
+                if (isGitHubPages) {
+                    const repoName = window.location.pathname.split('/')[1];
+                    const altPath = `/${repoName}/images/favicon/${icon}`;
+                    console.log(`Tentando caminho alternativo para GitHub Pages: ${altPath}`);
+
+                    const altImg = new Image();
+                    altImg.src = altPath;
+                    altImg.onload = function () {
+                        console.log(`Favicon encontrado no caminho alternativo: ${altPath}`);
+                    };
+                }
             };
         });
 
         // Log helpful message if favicons are missing
         if (missingFavicons.length > 0) {
             console.warn('Alguns favicons estão faltando. Certifique-se de que os seguintes arquivos existem na pasta images/favicon/:', missingFavicons);
+
+            // Se estiver no GitHub Pages, exiba dica específica
+            if (isGitHubPages) {
+                console.info('Dica para GitHub Pages: Certifique-se de que os caminhos estão corretos considerando o nome do repositório na URL.');
+            }
         }
     }
 
